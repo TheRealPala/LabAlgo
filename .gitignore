@@ -1,2 +1,6 @@
 venv
 .idea
+dist/chart/*
+dist/img/*
+!dist/img/.gitkeep
+!dist/chart/.gitkeep

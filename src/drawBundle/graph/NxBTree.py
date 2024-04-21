@@ -1,5 +1,5 @@
 import networkx as nx
-import src.drawBundle.BNode as BNode
+import src.drawBundle.graph.BNode as BNode
 
 
 class NxBTree:
