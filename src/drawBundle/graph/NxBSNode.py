@@ -1,4 +1,4 @@
-from src.mainBundle.abr.BSNode import BSNode
+from src.mainBundle.bst import BSNode
 class NxBSNode(BSNode):
     def __init__(self, key):
         super().__init__(key)

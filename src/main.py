@@ -4,8 +4,9 @@ import math
 
 from src.drawBundle.graph import AbrImagesHandler as aih
 from src.drawBundle.chart import ChartHandler as ch
+from src.mainBundle.booleanBst.BBSTree import BBSTree
 from src.performanceBundle.timer import Timer as pt
-from src.mainBundle.abr import BSTree
+from src.mainBundle.bst import BSTree
 import sys
 import numpy as np
 
@@ -38,9 +39,17 @@ def tryBst():
     bst.inorderTreeWalk(bst.getRoot())
     aih.drawGraph(bst)
 
+def tryBBST():
+    bbst = BBSTree()
+    values = [9, 5, 3, 3]
+    for value in values:
+        bbst.insert(value)
+    bbst.inorderTreeWalk(bbst.getRoot())
+    aih.drawGraph(bbst)
+
 if __name__ == '__main__':
     #print(pt.testFunction(saveChart))
-    tryBst()
+    tryBBST()
     # abrImage();
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
