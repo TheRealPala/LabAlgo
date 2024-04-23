@@ -15,6 +15,6 @@ def testFunction(function, args=None, decimals=3):
     return roundSeconds(end - start, decimals)
 
 
-class timer:
+class Timer:
     def __init__(self):
         pass
