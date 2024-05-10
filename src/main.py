@@ -1,11 +1,9 @@
 # This is a sample Python script.
 import math
-
-
 from src.drawBundle.graph import AbrImagesHandler as aih
 from src.drawBundle.chart import ChartHandler as ch
 from src.mainBundle.booleanBst.BBSTree import BBSTree
-from src.performanceBundle.timer import Timer as pt
+from src.mainBundle.linkedListBundle.LLBSTree import LLBSTree
 from src.mainBundle.bst import BSTree
 import sys
 import numpy as np
@@ -33,23 +31,37 @@ def saveChart():
 
 def tryBst():
     bst = BSTree.BSTree()
-    values = [9, 5, 15, 3, 7, 1, 4, 20, 25]
+    values = [3, 5, 2, 3, 4, 6, 7, 3, 2, 3];
     for value in values:
         bst.insert(value)
     bst.inorderTreeWalk(bst.getRoot())
-    aih.drawGraph(bst)
+    valuesFound = bst.multipleFindFront(3)
+    print(f'Number of values founded:{len(valuesFound)}')
+    print(f'List:{valuesFound}')
 
-def tryBBST():
+def tryBbst():
     bbst = BBSTree()
-    values = [9, 5, 3, 3]
+    values = [9, 5, 3, 10, 3, 4, 3, 3]
     for value in values:
         bbst.insert(value)
     bbst.inorderTreeWalk(bbst.getRoot())
-    aih.drawGraph(bbst)
+    valuesFound = bbst.multipleFindFront(3)
+    print(f'Number of values founded:{len(valuesFound)}')
+    print(f'List:{valuesFound}')
+def tryLLBst():
+    llbst = LLBSTree()
+    values = [9, 5, 3, 10, 3, 4, 3, 3, 2, 3]
+    for value in values:
+        llbst.insert(value)
+    llbst.inorderTreeWalk(llbst.getRoot())
+    head = llbst.find(3)
+    aih.drawGraph(llbst)
+    print(f'Number of values founded: {head.getCount()}')
+    head.showAllNextValues()
 
 if __name__ == '__main__':
     #print(pt.testFunction(saveChart))
-    tryBBST()
+    tryLLBst()
     # abrImage();
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/

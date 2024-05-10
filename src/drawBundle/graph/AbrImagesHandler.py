@@ -29,9 +29,6 @@ def getNxBStreeFromBSTree(bst):
 def drawGraph(g):
     nxGraph = getNxBStreeFromBSTree(g)
     drawNxGraph(nxGraph)
-def drawBGraph(g):
-    nxGraph = getNxBBStreeFromBSTree(g)
-    drawNxGraph(nxGraph)
 
 def createExampleGraph():
     numbers = [4, 2, 6, 1, 3, 5, 7]
