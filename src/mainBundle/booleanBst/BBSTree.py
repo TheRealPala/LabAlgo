@@ -10,10 +10,13 @@ class BBSTree(BSTree):
         node = BBSNode.BBSNode(key)
         father = None
         current = self._root
+        isNextToDuplicate = False
         while current is not None:
+            isNextToDuplicate = False
             father = current
             if node.__eq__(current):
                 current.setBooleanFlag(not current.getBooleanFlag())
+                isNextToDuplicate = True
                 if not current.getBooleanFlag():
                     current = current.getLeft()
                 else:
@@ -25,10 +28,17 @@ class BBSTree(BSTree):
         node.father = father
         if father is None:
             self._root = node
-        elif node.getKey() <= father.getKey():
-            father.setLeft(node)
         else:
-            father.setRight(node)
+            if not isNextToDuplicate:
+                if node.getKey() < father.getKey():
+                    father.setLeft(node)
+                else:
+                    father.setRight(node)
+            else:
+                if father.getBooleanFlag():
+                    father.setLeft(node)
+                else:
+                    father.setRight(node)
 
     def singleFind(self, key):
         current = self._root
