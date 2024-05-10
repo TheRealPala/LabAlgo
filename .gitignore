@@ -5,3 +5,5 @@ dist/img/*
 !dist/img/.gitkeep
 !dist/chart/.gitkeep
 dist/requests.pdf
+__pycache__
+src/drawBundle/graph/__pycache__/
