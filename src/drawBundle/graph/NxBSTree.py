@@ -33,6 +33,7 @@ class NxBSTree(BSTree):
             father.setRight(node)
             self.__nxTree.add_node(node.getKey(), label=str(node.getKey()))
             self.__nxTree.add_edge(father.getKey(), node.getKey())
+
     def createNxBSTFromBST(self, tree):
         if tree is not None:
             self.createNxBSTFromBST(tree.getLeft())
