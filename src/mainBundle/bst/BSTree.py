@@ -21,12 +21,12 @@ class BSTree:
         node.setFather(father)
         if father is None:
             self._root = node
-        elif node.getKey() < father.getKey():
+        elif node.getKey() <= father.getKey():
             father.setLeft(node)
         else:
             father.setRight(node)
 
-    def find(self, key):
+    def singleFind(self, key):
         current = self._root
         while current is not None and current.getKey() != key:
             if key <= current.getKey():
@@ -34,6 +34,26 @@ class BSTree:
             else:
                 current = current.getRight()
         return current
+
+    def __multipleFind(self, key, node, nodeFoundList):
+        if node is not None:
+            if node.getKey() == key:
+                nodeFoundList.append(node)
+                # ci potrebbero essere altri nodi nel sottoalbero sinistro
+                leftNode = node.getLeft()
+                if leftNode is not None:
+                    self.__multipleFind(key, leftNode, nodeFoundList)
+            elif key < node.getKey():
+                self.__multipleFind(key, node.getLeft(), nodeFoundList)
+            else:
+                self.__multipleFind(key, node.getRight(), nodeFoundList)
+        else:
+            return
+
+    def multipleFindFront(self, key):
+        list = []
+        self.__multipleFind(key, self._root, list)
+        return list
 
     def inorderTreeWalk(self, node):
         if node is not None:
