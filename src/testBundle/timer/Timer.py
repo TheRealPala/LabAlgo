@@ -13,8 +13,3 @@ def testFunction(function, args=None, decimals=3):
         function(args)
     end = perf_counter()
     return roundSeconds(end - start, decimals)
-
-
-class Timer:
-    def __init__(self):
-        pass
