@@ -5,6 +5,7 @@ from src.drawBundle.chart import ChartHandler as ch
 from src.mainBundle.booleanBst.BBSTree import BBSTree
 from src.mainBundle.linkedListBundle.LLBSTree import LLBSTree
 from src.mainBundle.bst import BSTree
+from src.testBundle.test import Test
 import sys
 import numpy as np
 
@@ -60,8 +61,12 @@ def tryLLBst():
     head.showAllNextValues()
 
 if __name__ == '__main__':
-    #print(pt.testFunction(saveChart))
-    tryLLBst()
-    # abrImage();
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    abr = BSTree.BSTree()
+    valuesToInsert = []
+    results = []
+    for i in range(2, 5):
+        valuesToInsert.append(int(math.pow(10, i)))
+    for value in valuesToInsert:
+        t = Test.Test("settings.json", value, abr)
+        results.append(t.testInsert())
+    print(results)

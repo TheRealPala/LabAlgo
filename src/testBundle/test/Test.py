@@ -3,7 +3,8 @@ import os
 import json
 from src.testBundle.timer import Timer as timer
 
-class Tester():
+
+class Test():
 
     def __readTestCase(self):
         with open(self.filename) as f:
@@ -20,16 +21,27 @@ class Tester():
         self.testCase = self.__readTestCase()
         self.abr = abr
 
-    def testInsert(self, dataSet):
+    def testInsertBack(self, args):
+        dataSet = args['dataset']
+        bst = args['bst']
         for value in dataSet:
-            self.bst.insert(value)
+            bst.insert(value)
 
-    def testInsertFront(self, percentage):
+    def testInsertFront(self, percentage, label):
         dataSet = genDataSet.generateFixedDataset(self.numOfValues, percentage)
-        time = timer.testFunction(self.testInsert, dataSet)
+        args = {'dataset': dataSet, 'bst': self.abr}
+        time = timer.testFunction(self.testInsertBack, args, 2)
         return {
             "time": time,
             "percentage": percentage,
-            "numOfValues": self.numOfValues
-            "action": "insert"
+            "numOfValues": self.numOfValues,
+            "action": "insert",
+            "label": label
         }
+
+    def testInsert(self):
+        result = []
+        for value in self.testCase:
+            tmpRes = self.testInsertFront(value["percentage"], value["label"])
+            result.append(tmpRes)
+        return result

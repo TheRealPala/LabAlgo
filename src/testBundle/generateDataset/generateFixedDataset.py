@@ -16,3 +16,4 @@ def generateFixedDataset(length, percentageOfDuplicates):
     for i in range(numOfDuplicateKeys):
         list.append(1)
     random.shuffle(list)
+    return list
