@@ -1,5 +1,6 @@
 # This is a sample Python script.
 import math
+import time
 from src.drawBundle.graph import AbrImagesHandler as aih
 from src.drawBundle.chart import ChartHandler as ch
 from src.mainBundle.booleanBst.BBSTree import BBSTree
@@ -8,7 +9,7 @@ from src.mainBundle.bst import BSTree
 from src.testBundle.test import Test
 import sys
 import numpy as np
-
+from tqdm import tqdm
 sys.setrecursionlimit(int(math.pow(10, 8)))
 
 def abrImage():
@@ -16,7 +17,6 @@ def abrImage():
     g = aih.createExampleGraph()
     aih.drawGraph(g)
     abrImageHandler.saveGraphImg(g, "exampleBtree.png")
-
 
 def printChart():
     ch.printChart()
@@ -65,8 +65,10 @@ if __name__ == '__main__':
     valuesToInsert = []
     results = []
     for i in range(2, 5):
-        valuesToInsert.append(int(math.pow(10, i)))
-    for value in valuesToInsert:
-        t = Test.Test("settings.json", value, abr)
+        valuesToInsert.append(int(math.pow(8, i)))
+    for i in ( bar := tqdm(valuesToInsert)):
+        bar.set_description(f"Testing with {i} values")
+        t = Test.Test("settings.json", i, abr)
         results.append(t.testInsert())
+        time.sleep(0.3)
     print(results)
