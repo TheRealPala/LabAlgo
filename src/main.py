@@ -73,6 +73,7 @@ if __name__ == '__main__':
     #     results.append(t.testActions())
     #     time.sleep(0.3)
     # print(results)
-    Tester.runAllTests()
+    t = Tester.runAllTests()
+    Tester.elaborateInsertResults(t)
 
 
