@@ -7,11 +7,15 @@ def roundSeconds(seconds, decimals=3):
 
 def testFunction(function, args=None, decimals=2):
     start = perf_counter()
+    ret = None
     if args is None:
-        function()
+        ret = function()
     else:
-        function(args)
+        ret = function(args)
     end = perf_counter()
     diff = end - start
     diff = f"{diff:.{decimals}E}"
-    return diff
+    return {
+        "time": diff,
+        "retFunction": ret
+    }
