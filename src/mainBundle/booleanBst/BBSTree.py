@@ -35,7 +35,7 @@ class BBSTree(BSTree):
                 else:
                     father.setRight(node)
             else:
-                if father.getBooleanFlag():
+                if not father.getBooleanFlag():
                     father.setLeft(node)
                 else:
                     father.setRight(node)
