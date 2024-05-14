@@ -39,7 +39,9 @@ class LLBSTree(BSTree):
                 if father.getRight() is not None:
                     node.setRight(father.getRight())
                     father.getRight().setFather(node)
-                if father.__eq__(father.getFather().getLeft()):
+                if father.getFather() is None:
+                    self._root = node
+                elif father.__eq__(father.getFather().getLeft()):
                     father.getFather().setLeft(node)
                 else:
                     father.getFather().setRight(node)
