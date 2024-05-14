@@ -1,6 +1,10 @@
 {
   "testCases": [
     {
+      "label": "best",
+      "percentage": 0
+    },
+    {
       "label": "small",
       "percentage": 0.3
     },

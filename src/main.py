@@ -6,7 +6,7 @@ from src.drawBundle.chart import ChartHandler as ch
 from src.mainBundle.booleanBst.BBSTree import BBSTree
 from src.mainBundle.linkedListBundle.LLBSTree import LLBSTree
 from src.mainBundle.bst import BSTree
-from src.testBundle.test import Test
+from src.testBundle.test import Test, Tester
 import sys
 import numpy as np
 from tqdm import tqdm
@@ -61,14 +61,18 @@ def tryLLBst():
     head.showAllNextValues()
 
 if __name__ == '__main__':
-    abr = BSTree.BSTree()
-    valuesToInsert = []
-    results = []
-    for i in range(2, 5):
-        valuesToInsert.append(int(math.pow(8, i)))
-    for i in ( bar := tqdm(valuesToInsert)):
-        bar.set_description(f"Testing with {i} values")
-        t = Test.Test("settings.json", i, abr)
-        results.append(t.testInsert())
-        time.sleep(0.3)
-    print(results)
+
+    # valuesToInsert = []
+    # results = []
+    # abr = BSTree.BSTree()
+    # for i in range(2, 5):
+    #     valuesToInsert.append(int(math.pow(2, i)))
+    # for i in ( bar := tqdm(valuesToInsert)):
+    #     bar.set_description(f"Testing with {i} values")
+    #     t = Test.Test("settings.json", i, abr)
+    #     results.append(t.testActions())
+    #     time.sleep(0.3)
+    # print(results)
+    Tester.runAllTests()
+
+
