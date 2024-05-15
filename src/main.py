@@ -74,10 +74,8 @@ if __name__ == '__main__':
     #     results.append(t.testActions())
     #     time.sleep(0.3)
     # print(results)
-    '''
     t = Tester.runAllTests()
-    Tester.elaborateInsertResults(t)
-    '''
+    t = Tester.elaborateInsertResults(t)
     ch = ChartHandler()
-    ch.genereateChartFromResults('prova')
+    ch.genereateChartFromResults(t)
 
