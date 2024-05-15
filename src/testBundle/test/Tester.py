@@ -43,5 +43,17 @@ def elaborateInsertResults(results):
         for r in results[a]:
             for t in r:
                 values[a][t["percentage"]]["values"].append({"numOfValues": t["numOfValues"],"time": t["timeInsert"]})
-    print(values)
+    return values
+def elaborateFindResults(results):
+    values = {}
+    tmp = {}
+    for abr in results:
+        for result in results[abr]:
+            for tmpRes in result:
+                tmp[tmpRes["percentage"]] = {"label": tmpRes["label"], "values": []}
+        values[abr] = copy.deepcopy(tmp)
+    for a in results:
+        for r in results[a]:
+            for t in r:
+                values[a][t["percentage"]]["values"].append({"numOfValues": t["numOfValues"],"time": t["timeFind"]})
     return values

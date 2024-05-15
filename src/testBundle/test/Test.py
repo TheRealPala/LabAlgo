@@ -61,7 +61,7 @@ class Test():
 
     def testFindBack(self, args):
         bst = args['bst']
-        res = bst.multipleFindFront(1)
+        res = bst.find(1)
         return res
 
 
@@ -69,14 +69,17 @@ class Test():
         ret = timer.testFunction(self.testFindBack, {'bst': self.bst}, 2)
         time = ret['time']
         retFunction = ret['retFunction']
-        length = len(retFunction)
-        if (length == 0):
-            valuesFound = 0
+        if (retFunction is None):
+            print('Error:' + self.bstName)
         else:
-            valuesFound = retFunction[0].getCount() if self.bstName == 'linked' else length
-        if valuesFound != self.numOfKeysDuplicated:
-            print(f'Error: {valuesFound} != {self.numOfKeysDuplicated}')
-        return time
+            length =  len(retFunction)
+            if (length == 0):
+                valuesFound = 0
+            else:
+                valuesFound = length
+            if valuesFound != self.numOfKeysDuplicated:
+                print(f'Error: {valuesFound} != {self.numOfKeysDuplicated}')
+            return time
 
     def testActions(self):
         ret = []

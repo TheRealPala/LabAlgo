@@ -72,7 +72,7 @@ class BBSTree(BSTree):
                 self.__multipleFind(key, node.getRight(), nodeFoundList)
         else:
             return
-    def multipleFindFront(self, key):
+    def find(self, key):
         list = []
         self.__multipleFind(key, self._root, list)
         return list

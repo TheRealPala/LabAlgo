@@ -50,7 +50,7 @@ class BSTree:
         else:
             return
 
-    def multipleFindFront(self, key):
+    def find(self, key):
         list = []
         self.__multipleFind(key, self._root, list)
         return list

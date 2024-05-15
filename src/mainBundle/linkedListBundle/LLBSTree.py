@@ -58,4 +58,9 @@ class LLBSTree(BSTree):
                 current = current.getLeft()
             else:
                 current = current.getRight()
-        return current
+        values = []
+        if current is not None:
+            while current is not None:
+                values.append(current)
+                current = current.getNext()
+        return values

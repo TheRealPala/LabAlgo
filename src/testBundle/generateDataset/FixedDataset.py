@@ -17,6 +17,8 @@ class FixedDataset:
             sys.stderr.write("Percentage of duplicates set to 30%")
         numOfFlatKeys = int(self.length * (1 - self.percentageOfDuplicates))
         numOfDuplicateKeys = self.length - numOfFlatKeys
+        if numOfDuplicateKeys == 0:
+            numOfDuplicateKeys = 1
         list = []
         for i in range(2, numOfFlatKeys + 2):
             list.append(i)
@@ -32,4 +34,6 @@ class FixedDataset:
             sys.stderr.write("Percentage of duplicates set to 30%")
         numOfFlatKeys = int(self.length * (1 - self.percentageOfDuplicates))
         numOfDuplicateKeys = self.length - numOfFlatKeys
+        if numOfDuplicateKeys == 0:
+            numOfDuplicateKeys = 1
         return numOfDuplicateKeys

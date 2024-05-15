@@ -75,7 +75,11 @@ if __name__ == '__main__':
     #     time.sleep(0.3)
     # print(results)
     t = Tester.runAllTests()
-    t = Tester.elaborateInsertResults(t)
+    insertResult = Tester.elaborateInsertResults(t)
     ch = ChartHandler()
-    ch.genereateChartFromResults(t)
+    ch.setAction("insert")
+    ch.genereateChartFromResults(insertResult)
+    findResult = Tester.elaborateFindResults(t)
+    ch.setAction("find")
+    ch.genereateChartFromResults(findResult)
 
