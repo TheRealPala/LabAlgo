@@ -28,7 +28,6 @@ def runAllTests():
     results["abr"] = runTest("bst")
     results["boolean"] = runTest("boolean")
     results["linked"] = runTest("linked")
-    print(results)
     return results
 
 

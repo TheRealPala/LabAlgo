@@ -6,6 +6,7 @@ from src.drawBundle.chart import ChartHandler as ch
 from src.mainBundle.booleanBst.BBSTree import BBSTree
 from src.mainBundle.linkedListBundle.LLBSTree import LLBSTree
 from src.mainBundle.bst import BSTree
+from src.testBundle.chartHandler.ChartHandler import ChartHandler
 from src.testBundle.test import Test, Tester
 import sys
 import numpy as np
@@ -73,7 +74,9 @@ if __name__ == '__main__':
     #     results.append(t.testActions())
     #     time.sleep(0.3)
     # print(results)
+    '''
     t = Tester.runAllTests()
     Tester.elaborateInsertResults(t)
+    '''
 
 
