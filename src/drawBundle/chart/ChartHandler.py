@@ -23,7 +23,13 @@ class ChartHandler:
         path = os.path.join(self.chartPath, directoryName)
         if (not os.path.exists(path)):
             os.mkdir(path)
-    def genereateChartFromResults(self, results):
+
+    def emptyDirectory(self):
         if (os.listdir(self.chartPath)):
             for f in glob.glob(os.path.join(self.chartPath, "*")):
-                os.remove(f)
+                if (os.path.isdir(f)):
+                    os.rmdir(f)
+                else:
+                    os.remove(f)
+    def genereateChartFromResults(self, results):
+       self.emptyDirectory()
