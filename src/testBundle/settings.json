@@ -6,6 +6,25 @@
   },
   "testCases": [
     {
+      "label": "best",
+      "percentage": 0
+    }
+  ],
+  "out": [
+
+    {
+      "label": "small",
+      "percentage": 0.3
+    },
+     {
+      "label": "medium",
+      "percentage": 0.6
+    },
+    {
+      "label": "large",
+      "percentage": 0.9
+    },
+    {
       "label": "worst",
       "percentage": 1
     }
