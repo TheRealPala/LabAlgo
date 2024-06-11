@@ -7,11 +7,13 @@ class LLBSTree(BSTree):
         super().__init__()
 
     def insert(self, key):
+        numOperationDone = 0
         node = LLBSNode(key)
         father = None
         current = self._root
         insideLinkedList = False
         while current is not None and not insideLinkedList:
+            numOperationDone += 1
             father = current
             if node.getKey() < current.getKey():
                 current = current.getLeft()
@@ -23,6 +25,7 @@ class LLBSTree(BSTree):
         if father is None:
             self._root = node
         else:
+            numOperationDone += 1
             if not insideLinkedList:
                 if node.getKey() < father.getKey():
                     father.setLeft(node)
@@ -50,10 +53,13 @@ class LLBSTree(BSTree):
                 father.setLeft(None)
                 father.setRight(None)
                 node.setNext(father)
+        return numOperationDone
 
     def find(self, key):
+        numOperationDone = 0
         current = self._root
         while current is not None and current.getKey() != key:
+            numOperationDone += 1
             if key < current.getKey():
                 current = current.getLeft()
             else:
@@ -61,6 +67,7 @@ class LLBSTree(BSTree):
         values = []
         if current is not None:
             while current is not None:
+                numOperationDone += 1
                 values.append(current)
                 current = current.getNext()
-        return values
+        return values, numOperationDone

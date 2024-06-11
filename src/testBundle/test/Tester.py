@@ -32,8 +32,8 @@ def runTest(abr, parameters):
 def runAllTests():
     results = {}
     parameters = readsTestDataParameters()
-    results["abr"] = runTest("bst", parameters)
-    results["boolean"] = runTest("boolean", parameters)
+    # results["abr"] = runTest("bst", parameters)
+    # results["boolean"] = runTest("boolean", parameters)
     results["linked"] = runTest("linked", parameters)
     return results
 
@@ -62,5 +62,5 @@ def elaborateFindResults(results):
     for a in results:
         for r in results[a]:
             for t in r:
-                values[a][t["percentage"]]["values"].append({"numOfValues": t["numOfValues"],"time": t["timeFind"]})
+                values[a][t["percentage"]]["values"].append({"numOfValues": t["numOfValuesFind"],"time": t["timeFind"]})
     return values

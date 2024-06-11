@@ -40,8 +40,10 @@ class Test():
     def testInsertBack(self, args):
         dataSet = args['dataset']
         bst = args['bst']
+        numOperationDone = 0
         for value in dataSet:
-            bst.insert(value)
+            numOperationDone += bst.insert(value)
+        return ['prova', numOperationDone]
 
     def testInsertFront(self, percentage, label):
         fd = FixedDataset.FixedDataset(self.numOfValues, percentage)
@@ -51,10 +53,12 @@ class Test():
         args = {'dataset': dataSet, 'bst': self.bst}
         ret = timer.testFunction(self.testInsertBack, args, 2)
         time = ret['time']
+        retFunction = ret['retFunction']
         return {
-            "timeInsert": time,
+            "timeInsert": retFunction[1],
             "percentage": percentage,
             "numOfValues": self.numOfValues,
+            "numOfValuesFind": None,
             "label": label,
             "timeFind": None
         }
@@ -72,22 +76,23 @@ class Test():
         if (retFunction is None):
             print('Error:' + self.bstName)
         else:
-            length = len(retFunction)
+            length = len(retFunction[0])
             if length == 0:
                 valuesFound = 0
             else:
                 valuesFound = length
             if valuesFound != self.numOfKeysDuplicated:
                 print(f'Error: {valuesFound} != {self.numOfKeysDuplicated}')
-            return time
+            return time, retFunction[1]
 
     def testActions(self):
         ret = []
         for value in self.testCase:
             self.bst = self.createDataStructure()
             tmpRes = self.testInsertFront(value["percentage"], value["label"])
-            timeFind = self.testFindFront()
+            timeFind, numOfValuesFind = self.testFindFront()
             tmpRes["timeFind"] = timeFind
+            tmpRes["numOfValuesFind"] = numOfValuesFind
             ret.append(tmpRes)
         return ret
 
