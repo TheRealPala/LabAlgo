@@ -72,8 +72,8 @@ class Test():
         if (retFunction is None):
             print('Error:' + self.bstName)
         else:
-            length =  len(retFunction)
-            if (length == 0):
+            length = len(retFunction)
+            if length == 0:
                 valuesFound = 0
             else:
                 valuesFound = length
