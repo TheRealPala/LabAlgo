@@ -17,9 +17,9 @@ class ChartHandler:
     def setAction(self, action):
         self.action = action
     def saveChart(self, datasetX, datasetY, xLabel, yLabel, filename):
-        plt.xlabel(xLabel)
-        plt.ylabel(yLabel)
-        plt.plot(datasetX, datasetY)
+        fig, ax = plt.subplots(figsize=(8, 6))
+        ax.plot(datasetX, datasetY)
+        ax.set(xlabel=xLabel, ylabel=yLabel)
         plt.savefig(os.path.join(self.chartPath, filename))
         plt.close()
     def createSubDirectory(self, directoryName):
@@ -50,4 +50,4 @@ class ChartHandler:
                    for res in results[type][percentage]['values']:
                        xValues.append(res['numOfValues'])
                        yValues.append(res['time'])
-                   self.saveChart(xValues, yValues, "elementi", "tempo (secondi)", self.action + "/" + type + "/" + label + "CaseChart")
+                   self.saveChart(xValues, yValues, "elementi", "tempo [s]", self.action + "/" + type + "/" + label + "CaseChart")
