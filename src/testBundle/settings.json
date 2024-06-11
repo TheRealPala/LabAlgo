@@ -1,4 +1,9 @@
 {
+  "rangeSettings": {
+    "minExp": 0,
+    "maxExp": 14,
+    "base": 2
+  },
   "testCases": [
     {
       "label": "best",

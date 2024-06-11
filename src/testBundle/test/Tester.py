@@ -1,23 +1,29 @@
 import copy
+import json
+import os
 
 from tqdm import tqdm
 import time
 import math
-
-from src.mainBundle.booleanBst.BBSTree import BBSTree
-from src.mainBundle.bst.BSTree import BSTree
-from src.mainBundle.linkedListBundle.LLBSTree import LLBSTree
 from src.testBundle.test import Test
+filename = "settings.json"
 
+def readsTestDataParameters():
+    absPath = os.path.dirname(os.path.abspath(__file__)) + "/../"
+    filePath = os.path.join(absPath, filename)
+    with open(filePath) as f:
+        data = json.load(f)
+        data = data["rangeSettings"]
+        return data
 
-def runTest(abr):
+def runTest(abr, parameters):
     valuesToInsert = []
     results = []
-    for i in range(2, 7):
-        valuesToInsert.append(int(math.pow(2, i)))
+    for i in range(parameters['minExp'], parameters['maxExp'] + 1):
+        valuesToInsert.append(int(math.pow(parameters['base'], i)))
     for i in (bar := tqdm(valuesToInsert)):
         bar.set_description(f"{abr}: Testing with {i} values")
-        t = Test.Test("settings.json", i, abr)
+        t = Test.Test(filename, i, abr)
         results.append(t.testActions())
         time.sleep(0.3)
     return results
@@ -25,9 +31,10 @@ def runTest(abr):
 
 def runAllTests():
     results = {}
-    results["abr"] = runTest("bst")
-    results["boolean"] = runTest("boolean")
-    results["linked"] = runTest("linked")
+    parameters = readsTestDataParameters()
+    results["abr"] = runTest("bst", parameters)
+    results["boolean"] = runTest("boolean", parameters)
+    results["linked"] = runTest("linked", parameters)
     return results
 
 
