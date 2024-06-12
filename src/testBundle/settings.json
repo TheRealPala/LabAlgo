@@ -1,9 +1,8 @@
 {
   "rangeSettings": {
     "minExp": 0,
-    "maxExp": 8,
-    "base": 2,
-    "step": 15
+    "maxExp": 12,
+    "base": 2
   },
   "testCases": [
     {

@@ -2,6 +2,10 @@ import matplotlib.pyplot as plt
 import os
 import glob
 import shutil
+
+from matplotlib.ticker import ScalarFormatter
+
+
 def drawChart(datasetX, datasetY, xLabel, yLabel):
     plt.plot(datasetX, datasetY)
     plt.xlabel(xLabel)
@@ -19,6 +23,8 @@ class ChartHandler:
     def saveChart(self, datasetX, datasetY, xLabel, yLabel, filename):
         fig, ax = plt.subplots(figsize=(8, 6))
         ax.plot(datasetX, datasetY)
+        ax.yaxis.set_major_formatter(ScalarFormatter(useMathText=True))
+        ax.ticklabel_format(style='sci', axis='y', scilimits=(0, 0))
         ax.set(xlabel=xLabel, ylabel=yLabel)
         plt.savefig(os.path.join(self.chartPath, filename))
         plt.close()
