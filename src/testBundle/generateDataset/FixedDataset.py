@@ -24,7 +24,7 @@ class FixedDataset:
             list.append(i)
         for i in range(numOfDuplicateKeys):
             list.append(1)
-        random.shuffle(list)
+        # random.shuffle(list)
         return list
 
     def getNumOfDuplicatedKeys(self):

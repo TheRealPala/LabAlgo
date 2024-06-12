@@ -1,26 +1,11 @@
 {
   "rangeSettings": {
     "minExp": 0,
-    "maxExp": 14,
-    "base": 2
+    "maxExp": 8,
+    "base": 2,
+    "step": 15
   },
   "testCases": [
-    {
-      "label": "best",
-      "percentage": 0
-    },
-    {
-      "label": "small",
-      "percentage": 0.3
-    },
-     {
-      "label": "medium",
-      "percentage": 0.6
-    },
-    {
-      "label": "large",
-      "percentage": 0.9
-    },
     {
       "label": "worst",
       "percentage": 1
