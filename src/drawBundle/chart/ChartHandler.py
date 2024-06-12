@@ -54,7 +54,6 @@ class ChartHandler:
                     os.remove(f)
 
     def genereateChartFromResults(self, results):
-        print(results)
         self.emptyDirectory()
         if (self.action == None):
             return
@@ -75,21 +74,16 @@ class ChartHandler:
                         yValues.append(res['time'])
                     self.saveChart(xValues, yValues, "elementi", "tempo [s]",
                                    self.action + "/" + type + "/" + label + "CaseChart", title = self.action + ":" + label)
-            print(labels)
             xValues = {}
             yValues = {}
-            print(self.action)
             for label in labels:
-                print(label)
                 xValues[label] = []
                 yValues[label] = {}
                 for type in results:
-                    print(type)
                     yValues[label][type] = []
                     for percentage in results[type]:
                         for res in results[type][percentage]['values']:
                             if(label == results[type][percentage]['label']):
-                                print(res)
                                 if (res['numOfValues'] not in xValues[label]):
                                     xValues[label].append(res['numOfValues'])
                                 yValues[label][type].append(res['time'])
