@@ -17,7 +17,7 @@ class Test():
             data = data["testCases"]
             return data
 
-    def __init__(self, configFileName, numOfValues, bstName):
+    def __init__(self, configFileName, numOfValues, bstName, dataset):
         self.bst = None
         self.rootProject = os.path.dirname(os.path.abspath(__file__)) + "/../../"
         self.bundlePath = os.path.join(self.rootProject, "testBundle/")
@@ -26,8 +26,8 @@ class Test():
         self.testCase = self.__readTestCase()
         self.numOfKeysDuplicated = 0
         self.bstName = bstName
-        self.ds = None
-    
+        self.dataset = dataset
+
     def createDataStructure(self):
         if self.bstName == "bst":
             return BSTree()
@@ -44,10 +44,8 @@ class Test():
             bst.insert(value)
 
     def testInsertFront(self, percentage, label):
-        fd = FixedDataset.FixedDataset(self.numOfValues, percentage)
-        dataSet = fd.generateFixedDataset()
-        self.ds = dataSet
-        self.numOfKeysDuplicated = fd.getNumOfDuplicatedKeys()
+        dataSet = self.dataset[percentage]['elements'][self.numOfValues]['values']
+        self.numOfKeysDuplicated = self.dataset[percentage]['elements'][self.numOfValues]['numOfKeysDuplicated']
         args = {'dataset': dataSet, 'bst': self.bst}
         ret = timer.testFunction(self.testInsertBack, args, 2)
         time = ret['time']

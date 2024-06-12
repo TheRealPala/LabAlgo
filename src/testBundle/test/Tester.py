@@ -5,7 +5,9 @@ import os
 from tqdm import tqdm
 import time
 import math
+
 from src.testBundle.test import Test
+from src.testBundle.generateDataset.DatasetGenerator import DatasetGenerator
 filename = "settings.json"
 
 def readsTestDataParameters():
@@ -16,14 +18,14 @@ def readsTestDataParameters():
         data = data["rangeSettings"]
         return data
 
-def runTest(abr, parameters):
+def runTest(abr, parameters, dataSets):
     valuesToInsert = []
     results = []
     for i in range(parameters['minExp'], parameters['maxExp'] + 1):
         valuesToInsert.append(int(math.pow(parameters['base'], i)))
     for i in (bar := tqdm(valuesToInsert)):
         bar.set_description(f"{abr}: Testing with {i} values")
-        t = Test.Test(filename, i, abr)
+        t = Test.Test(filename, i, abr, dataSets)
         results.append(t.testActions())
         time.sleep(0.3)
     return results
@@ -32,9 +34,11 @@ def runTest(abr, parameters):
 def runAllTests():
     results = {}
     parameters = readsTestDataParameters()
-    results["abr"] = runTest("bst", parameters)
-    results["boolean"] = runTest("boolean", parameters)
-    results["linked"] = runTest("linked", parameters)
+    dataSetGen = DatasetGenerator('settings.json')
+    dataSets = dataSetGen.getDataSet()
+    results["abr"] = runTest("bst", parameters, dataSets)
+    results["boolean"] = runTest("boolean", parameters, dataSets)
+    results["linked"] = runTest("linked", parameters, dataSets)
     return results
 
 
