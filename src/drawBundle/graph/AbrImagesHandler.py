@@ -15,8 +15,9 @@ def createRandomGraph(n=7):
     return bTree.getTree()
 
 
-def drawNxGraph(g):
-    pos = graphviz_layout(g, prog="dot")
+def drawNxGraph(g, pos=None):
+    if (pos == None):
+        pos = graphviz_layout(g, prog="dot")
     nx.draw(g, pos, with_labels=True, arrows=True)
     plt.show()
 
@@ -36,6 +37,10 @@ def createExampleGraph():
     for number in numbers:
         bTree.insert(number)
     return bTree.getTree()
+
+def createBalancedTree():
+    tree = nx.balanced_tree(r=2, h=5)
+    drawNxGraph(tree)
 
 
 def createNxCustomGraphFromValues(values):

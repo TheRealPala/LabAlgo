@@ -22,6 +22,9 @@ def abrImage():
 def printChart():
     ch.printChart()
 
+def printBalancedTree():
+    aih.createBalancedTree()
+
 
 def saveChart():
     datasetX = np.random.randint(0, 100, size=100)
@@ -74,6 +77,7 @@ if __name__ == '__main__':
     #     results.append(t.testActions())
     #     time.sleep(0.3)
     # print(results)
+
     t = Tester.runAllTests()
     insertResult = Tester.elaborateInsertResults(t)
     ch = ChartHandler()
@@ -82,4 +86,5 @@ if __name__ == '__main__':
     findResult = Tester.elaborateFindResults(t)
     ch.setAction("find")
     ch.genereateChartFromResults(findResult)
+    # printBalancedTree()
 
