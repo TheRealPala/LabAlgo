@@ -6,7 +6,7 @@ from src.mainBundle.bst.BSTree import BSTree
 class NxBSTree(BSTree):
     def __init__(self):
         super().__init__()
-        self.__nxTree = nx.DiGraph()
+        self.__nxTree = nx.Graph()
 
     def getTree(self):
         return self.__nxTree
@@ -42,3 +42,5 @@ class NxBSTree(BSTree):
                 self.__nxTree.add_edge(tree.getKey(), tree.getLeft().getKey())
             if tree.getRight() is not None:
                 self.__nxTree.add_edge(tree.getKey(), tree.getRight().getKey())
+
+

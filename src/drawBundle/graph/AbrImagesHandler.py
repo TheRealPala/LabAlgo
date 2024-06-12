@@ -20,6 +20,7 @@ def drawNxGraph(g, pos=None):
         pos = graphviz_layout(g, prog="dot")
     nx.draw(g, pos, with_labels=True, arrows=True)
     plt.show()
+    plt.close()
 
 
 def getNxBStreeFromBSTree(bst):
@@ -31,16 +32,17 @@ def drawGraph(g):
     nxGraph = getNxBStreeFromBSTree(g)
     drawNxGraph(nxGraph)
 
-def createExampleGraph():
+def createBalancedGraph():
     numbers = [4, 2, 6, 1, 3, 5, 7]
     bTree = NxBSTree()
     for number in numbers:
         bTree.insert(number)
     return bTree.getTree()
 
-def createBalancedTree():
-    tree = nx.balanced_tree(r=2, h=5)
-    drawNxGraph(tree)
+
+def createBalancedTree(n = 2, h = 5):
+    tree = nx.balanced_tree(n, h)
+    return tree
 
 
 def createNxCustomGraphFromValues(values):
@@ -59,3 +61,4 @@ class AbrImagesHandler:
         pos = graphviz_layout(g, prog="dot")
         nx.draw(g, pos, with_labels=True, arrows=True)
         plt.savefig(os.path.join(self.imgPath, filename))
+        plt.close()
