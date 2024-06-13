@@ -1,4 +1,4 @@
-# Codice Esrcizio 1 Laboratorio di Algoritmi e Strutture Dati
+# Codice Esercizio 1 Laboratorio di Algoritmi e Strutture Dati
 
 ## Problema:
 Vogliamo confrontare vari modi per gestire chiavi duplicate in ABR:
