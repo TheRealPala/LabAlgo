@@ -1,11 +1,14 @@
+import random
 import sys
+
+import numpy as np
 
 from src.mainBundle.booleanBst.BBSTree import BBSTree
 from src.mainBundle.bst.BSTree import BSTree
 from src.mainBundle.linkedListBundle.LLBSTree import LLBSTree
-from src.testBundle.generateDataset import FixedDataset
 import os
 import json
+
 from src.testBundle.timer import Timer as timer
 
 
@@ -38,19 +41,22 @@ class Test():
 
 
     def testInsertBack(self, args):
-        dataSet = args['dataset']
         bst = args['bst']
-        for value in dataSet:
-            bst.insert(value)
+        value = args['value']
+        bst.insert(value)
 
     def testInsertFront(self, percentage, label):
         dataSet = self.dataset[percentage]['elements'][self.numOfValues]['values']
         self.numOfKeysDuplicated = self.dataset[percentage]['elements'][self.numOfValues]['numOfKeysDuplicated']
-        args = {'dataset': dataSet, 'bst': self.bst}
-        ret = timer.testFunction(self.testInsertBack, args, 2)
-        time = ret['time']
+        args = {'dataset': dataSet, 'bst': self.bst, 'value': None}
+        times = []
+        for value in dataSet:
+            args['value'] = value
+            ret = timer.testFunction(self.testInsertBack, args)
+            times.append(ret['time'])
+        avg_time = sum(times) / len(times)
         return {
-            "timeInsert": time,
+            "timeInsert": avg_time,
             "percentage": percentage,
             "numOfValues": self.numOfValues,
             "label": label,
@@ -64,7 +70,7 @@ class Test():
 
 
     def testFindFront(self):
-        ret = timer.testFunction(self.testFindBack, {'bst': self.bst}, 2)
+        ret = timer.testFunction(self.testFindBack, {'bst': self.bst})
         time = ret['time']
         retFunction = ret['retFunction']
         if (retFunction is None):

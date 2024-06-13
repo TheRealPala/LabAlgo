@@ -5,7 +5,7 @@ def roundSeconds(seconds, decimals=3):
     return round(seconds, decimals)
 
 
-def testFunction(function, args=None, decimals=2):
+def testFunction(function, args=None):
     start = timer()
     ret = None
     if args is None:
@@ -14,7 +14,6 @@ def testFunction(function, args=None, decimals=2):
         ret = function(args)
     end = timer()
     diff = end - start
-    # diff = f"{diff:.{decimals}E}"
     return {
         "time": diff,
         "retFunction": ret
