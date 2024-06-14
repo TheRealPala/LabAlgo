@@ -26,15 +26,6 @@ class BSTree:
         else:
             father.setRight(node)
 
-    def singleFind(self, key):
-        current = self._root
-        while current is not None and current.getKey() != key:
-            if key <= current.getKey():
-                current = current.getLeft()
-            else:
-                current = current.getRight()
-        return current
-
     def __multipleFind(self, key, node, nodeFoundList):
         if node is not None:
             if node.getKey() == key:
