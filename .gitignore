@@ -7,3 +7,4 @@ dist/img/*
 dist/requests.pdf
 __pycache__
 src/drawBundle/graph/__pycache__/
+dist/fileSystem.txt
