@@ -21,4 +21,4 @@ Vogliamo confrontare vari modi per gestire chiavi duplicate in ABR:
 ## Azioni Facilitate
 Per facilitare lo scuffold e l'esecuzione dei test, ho inserito due file bash eseguibili:
 - installRequirements
-- execMain
+- execSourceCode

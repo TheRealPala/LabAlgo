@@ -9,4 +9,4 @@ Scuffold:
 1)Eseguire il file bash installRequirements: ./installRequirements
 
 Eseguire i test:
-1)Eseguire il file bash installRequirements: ./execMain
+1)Eseguire il file bash installRequirements: ./execSourceCode
