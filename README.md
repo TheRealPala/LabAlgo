@@ -1,5 +1,5 @@
 # Codice Esercizio 1 Laboratorio di Algoritmi e Strutture Dati
-
+## IMPORTANTE: Questo non è il file "ReadLabAlgo.txt" richiesto dal punto 5 delle istruzioni moodle
 ## Problema:
 Vogliamo confrontare vari modi per gestire chiavi duplicate in ABR:
 * implementazione "normale" (senza accorgimenti particolari)
@@ -18,3 +18,7 @@ Vogliamo confrontare vari modi per gestire chiavi duplicate in ABR:
 `pip install -r requirements.txt`  
 `python main.py`
 
+## Azioni Facilitate
+Per facilitare lo scuffold e l'esecuzione dei test, ho inserito due file bash eseguibili:
+- installRequirements
+- execMain
