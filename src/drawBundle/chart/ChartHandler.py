@@ -5,7 +5,7 @@ import shutil
 
 import numpy as np
 from matplotlib.ticker import ScalarFormatter
-from scipy.signal import medfilt
+
 
 
 def drawChart(datasetX, datasetY, xLabel, yLabel):
