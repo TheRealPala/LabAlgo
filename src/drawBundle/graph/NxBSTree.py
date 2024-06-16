@@ -1,6 +1,6 @@
 import networkx as nx
-from src.mainBundle.bst.BSNode import BSNode
-from src.mainBundle.bst.BSTree import BSTree
+from mainBundle.bst.BSNode import BSNode
+from mainBundle.bst.BSTree import BSTree
 
 
 class NxBSTree(BSTree):

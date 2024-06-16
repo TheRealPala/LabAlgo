@@ -1,4 +1,4 @@
-from src.mainBundle.bst.BSNode import BSNode
+from mainBundle.bst.BSNode import BSNode
 
 
 class BBSNode(BSNode):

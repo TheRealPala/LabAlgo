@@ -1,6 +1,6 @@
-from src.mainBundle.booleanBst.BBSTree import BBSTree
-from src.mainBundle.bst.BSTree import BSTree
-from src.mainBundle.linkedListBundle.LLBSTree import LLBSTree
+from mainBundle.booleanBst.BBSTree import BBSTree
+from mainBundle.bst.BSTree import BSTree
+from mainBundle.linkedListBundle.LLBSTree import LLBSTree
 
 def tryBst():
     bst = BSTree()

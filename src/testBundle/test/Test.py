@@ -1,15 +1,10 @@
-import random
-import sys
-
-import numpy as np
-
-from src.mainBundle.booleanBst.BBSTree import BBSTree
-from src.mainBundle.bst.BSTree import BSTree
-from src.mainBundle.linkedListBundle.LLBSTree import LLBSTree
+from mainBundle.booleanBst.BBSTree import BBSTree
+from mainBundle.bst.BSTree import BSTree
+from mainBundle.linkedListBundle.LLBSTree import LLBSTree
 import os
 import json
 
-from src.testBundle.timer import Timer as timer
+from testBundle.timer import Timer as timer
 
 
 class Test():

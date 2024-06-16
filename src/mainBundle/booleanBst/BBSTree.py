@@ -1,5 +1,5 @@
-from src.mainBundle.booleanBst import BBSNode
-from src.mainBundle.bst.BSTree import BSTree
+from mainBundle.booleanBst import BBSNode
+from mainBundle.bst.BSTree import BSTree
 
 
 class BBSTree(BSTree):

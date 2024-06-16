@@ -1,7 +1,7 @@
 import json
 import math
 import os
-from src.testBundle.generateDataset.FixedDataset import FixedDataset
+from testBundle.generateDataset.FixedDataset import FixedDataset
 
 
 class DatasetGenerator:

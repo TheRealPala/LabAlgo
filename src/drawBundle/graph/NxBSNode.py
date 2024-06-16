@@ -1,4 +1,4 @@
-from src.mainBundle.bst import BSNode
+from mainBundle.bst import BSNode
 
 
 class NxBSNode(BSNode):

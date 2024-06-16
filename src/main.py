@@ -2,9 +2,9 @@
 import math
 import sys
 
-from src.drawBundle.chart.ChartHandler import ChartHandler
-from src.testBundle.test import Tester
-from src.drawBundle.images import generateImages
+from drawBundle.chart.ChartHandler import ChartHandler
+from testBundle.test import Tester
+from drawBundle.images import generateImages
 sys.setrecursionlimit(int(math.pow(10, 8)))
 
 if __name__ == '__main__':

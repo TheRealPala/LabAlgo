@@ -6,8 +6,8 @@ from tqdm import tqdm
 import time
 import math
 
-from src.testBundle.test import Test
-from src.testBundle.generateDataset.DatasetGenerator import DatasetGenerator
+from testBundle.test import Test
+from testBundle.generateDataset.DatasetGenerator import DatasetGenerator
 filename = "settings.json"
 
 def readsTestDataParameters():

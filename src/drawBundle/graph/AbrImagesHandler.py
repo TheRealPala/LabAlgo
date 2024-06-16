@@ -3,7 +3,7 @@ import networkx as nx
 from networkx.drawing.nx_pydot import graphviz_layout
 import numpy as np
 import os
-from src.drawBundle.graph.NxBSTree import NxBSTree
+from drawBundle.graph.NxBSTree import NxBSTree
 
 
 def createRandomGraph(n=7):

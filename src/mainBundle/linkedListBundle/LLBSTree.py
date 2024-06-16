@@ -1,5 +1,5 @@
-from src.mainBundle.bst.BSTree import BSTree
-from src.mainBundle.linkedListBundle.LLBSNode import LLBSNode
+from mainBundle.bst.BSTree import BSTree
+from mainBundle.linkedListBundle.LLBSNode import LLBSNode
 
 
 class LLBSTree(BSTree):
